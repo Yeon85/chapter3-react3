@@ -2,10 +2,7 @@ import { useEffect, useState } from 'react';
 import axios from 'axios';
 import PostForm from './PostForm';
 import PostItem from './PostItem';
-<<<<<<< HEAD
-=======
 import api from './api';
->>>>>>> 91fa7ff (new commit)
 
 function PostList() {
   const [posts, setPosts] = useState([]);
@@ -15,10 +12,7 @@ function PostList() {
     fetchPosts();
   }, []);
   const fetchPosts = async () => {
-<<<<<<< HEAD
-=======
    
->>>>>>> 91fa7ff (new commit)
     try {
       const res = await axios.get('http://localhost:5000/api/posts');
       setPosts(res.data);
@@ -27,17 +21,9 @@ function PostList() {
     }
   };
 
-<<<<<<< HEAD
   const handleAddOrUpdate = async (post) => {
     if (editingPost) {
       await axios.put(`http://localhost:5000/api/posts/${editingPost.id}`, post);
-=======
-
-
-  const handleAddOrUpdate = async (post) => {
-    if (editingPost) {
-      await axios.put('http://localhost:5000/api/posts/${editingPost.id}', post);
->>>>>>> 91fa7ff (new commit)
     } else {
       await axios.post('http://localhost:5000/api/posts', post);
     }
@@ -58,10 +44,6 @@ function PostList() {
     setEditingPost(null);
   };
   const handleUpdate = async (id, title, content) => {
-<<<<<<< HEAD
-    await api.put(`/api/posts/${id}`, { title, content });
-    fetchPosts();
-=======
     console.log('Updating post:', id, title, content);
     try {
       const response = await api.put(`http://localhost:5000/api/posts/${id}`, { title, content });
@@ -70,7 +52,6 @@ function PostList() {
     } catch (error) {
       console.error('Update failed:', error);
     }
->>>>>>> 91fa7ff (new commit)
   };
 
   return (
@@ -80,15 +61,9 @@ function PostList() {
         <PostItem
         key={post.id}
         post={post}
-<<<<<<< HEAD
-        onDelete={handleDelete}
-        onEdit={handleEdit}     // 선택된 post 넘길 때
-        onUpdate={handleUpdate} // ✅ 인라인 수정용
-=======
         onUpdate={handleUpdate} 
         onDelete={handleDelete}
         onEdit={handleEdit}     // 선택된 post 넘길 때
->>>>>>> 91fa7ff (new commit)
       />
       ))}
     </div>
